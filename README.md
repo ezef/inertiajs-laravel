@@ -1,0 +1,1 @@
+## Laravel + InertiaJs learning project
