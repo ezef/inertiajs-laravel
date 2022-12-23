@@ -10,6 +10,8 @@ class Patient extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function practices(): HasMany
     {
         return $this->hasMany(Practice::class);
