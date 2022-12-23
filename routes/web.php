@@ -34,10 +34,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    Route::get('/patients', [PatientController::class, 'index'])->name('patient.index');
+    Route::get('/patients/{patient}', [PatientController::class, 'show'])->name('patient.show');
+    Route::put('/patients/{patient}', [PatientController::class, 'update'])->name('patient.update');
 });
 
-Route::get('/patients', [PatientController::class, 'index'])->name('patient.index');
-Route::get('/patients/{patient}', [PatientController::class, 'show'])->name('patient.show');
-Route::put('/patients/{patient}', [PatientController::class, 'update'])->name('patient.update');
 
 require __DIR__.'/auth.php';
