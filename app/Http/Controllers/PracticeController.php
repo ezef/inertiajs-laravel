@@ -24,9 +24,15 @@ class PracticeController extends Controller
             'date' => 'required|date',
         ]);
 
-        $practice->update($validated);
+        $practice->fill($validated + ['patient_id' => $patient->id])->save();
 
         return Redirect::route('practice.show', ['practice' => $practice->id, 'patient' => $patient->id]);
+    }
+
+    public function create(Patient $patient)
+    {
+        $practice = new Practice();
+        return Inertia::render('Practice/Show', compact('practice', 'patient'));
     }
 }
 

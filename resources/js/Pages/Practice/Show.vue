@@ -24,7 +24,7 @@ const form = useForm({
 
 
 const savePractice = () => {
-    form.put(route('practice.update', {patient: props.patient.id, practice: props.practice.id}), {
+    form.put(route('practice.update', {patient: props.patient.id, practice: props.practice.id ?? null}), {
         preserveScroll: true,
         onError: () => {
             if (form.errors.name) {

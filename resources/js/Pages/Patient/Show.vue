@@ -79,6 +79,7 @@ const savePatient = () => {
 
 
             <div v-if="!!props.patient?.id" class="bg-white mt-6 overflow-hidden ml-4 px-6 py-4 shadow-md sm:max-w-2xl sm:rounded-lg w-full">
+                <Link :href="route('practice.create', props.patient.id)" class="text-sm text-gray-700 dark:text-gray-500 underline">Add new practice</Link>
                 <table>
                     <thead>
                     <tr>
