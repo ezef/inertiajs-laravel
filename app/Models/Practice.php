@@ -9,6 +9,8 @@ class Practice extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function patient()
     {
         return $this->belongsTo(Patient::class);
