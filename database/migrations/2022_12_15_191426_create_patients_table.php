@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('age');
             $table->string('blood_type');
-            $table->datetime('birthdate');
             $table->timestamps();
         });
     }

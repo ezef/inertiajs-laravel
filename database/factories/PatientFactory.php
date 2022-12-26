@@ -28,7 +28,6 @@ class PatientFactory extends Factory
                 'AB+',
                 'AB-',
             ]),
-            'birthdate' => fake()->dateTime(),
         ];
     }
 }
