@@ -30,8 +30,14 @@ class PatientController extends Controller
             'blood_type' => 'required|string',
         ]);
 
-        $patient->update($validated);
+        $patient->fill($validated)->save();
 
         return Redirect::route('patient.show', $patient->id);
+    }
+
+    public function create()
+    {
+        $patient = new Patient();
+        return Inertia::render('Patient/Show', compact('patient'));
     }
 }

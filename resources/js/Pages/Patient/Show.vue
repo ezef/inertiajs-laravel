@@ -22,7 +22,7 @@ const form = useForm({
 });
 
 const savePatient = () => {
-    form.put(route('patient.update', props.patient.id), {
+    form.put(route('patient.update', {patient: props.patient.id ?? null}), {
         preserveScroll: true,
         // onSuccess: () => form.reset(),
         onError: () => {
@@ -78,7 +78,7 @@ const savePatient = () => {
             </div>
 
 
-            <div class="bg-white mt-6 overflow-hidden ml-4 px-6 py-4 shadow-md sm:max-w-2xl sm:rounded-lg w-full">
+            <div v-if="!!props.patient?.id" class="bg-white mt-6 overflow-hidden ml-4 px-6 py-4 shadow-md sm:max-w-2xl sm:rounded-lg w-full">
                 <table>
                     <thead>
                     <tr>

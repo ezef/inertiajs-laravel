@@ -13,6 +13,7 @@ const props = defineProps({
 
         <div class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             <div class="bg-white mt-6 overflow-hidden px-6 py-4 shadow-md sm:max-w-2xl sm:rounded-lg w-full">
+                <Link :href="route('patient.create')" class="text-sm text-gray-700 dark:text-gray-500 underline">Add new</Link>
                 <div>
                     <table>
                         <thead>

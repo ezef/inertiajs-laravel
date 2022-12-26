@@ -38,8 +38,9 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/patients', [PatientController::class, 'index'])->name('patient.index');
+    Route::get('/patients/new', [PatientController::class, 'create'])->name('patient.create');
     Route::get('/patients/{patient}', [PatientController::class, 'show'])->name('patient.show');
-    Route::put('/patients/{patient}', [PatientController::class, 'update'])->name('patient.update');
+    Route::put('/patients/{patient?}', [PatientController::class, 'update'])->name('patient.update');
 
     Route::get('/patients/{patient}/practice/{practice}', [PracticeController::class, 'show'])->name('practice.show');
     Route::put('/patients/{patient}/practice/{practice}', [PracticeController::class, 'update'])->name('practice.update');
