@@ -3,7 +3,7 @@ import {Head, Link} from '@inertiajs/inertia-vue3';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
 const props = defineProps({
-    patients: Array,
+    paginator: Object,
 })
 </script>
 
@@ -24,7 +24,7 @@ const props = defineProps({
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="patient in patients">
+                        <tr v-for="patient in paginator.data">
                             <td class="pr-4 pl-4">
                                 <Link :href="route('patient.show', patient.id)" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ patient.name }}</Link>
                             </td>
@@ -33,6 +33,14 @@ const props = defineProps({
                         </tr>
                         </tbody>
                     </table>
+
+                    <div class="mt-4">
+                        <template v-if="!!paginator.prev_page_url">
+                            <Link  :href="paginator.prev_page_url" class="text-sm text-gray-700 dark:text-gray-500 underline">Prev page</Link> |
+                        </template>
+                        <Link v-if="!!paginator.next_page_url" :href="paginator.next_page_url" class="text-sm text-gray-700 dark:text-gray-500 underline">Next page</Link>
+                    </div>
+
                 </div>
             </div>
         </div>

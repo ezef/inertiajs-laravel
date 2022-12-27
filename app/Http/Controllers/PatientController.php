@@ -12,8 +12,8 @@ class PatientController extends Controller
 {
     public function index()
     {
-        $patients = Patient::all();
-        return Inertia::render('Patient/Index', compact('patients'));
+        $paginator = Patient::paginate();
+        return Inertia::render('Patient/Index', compact('paginator'));
     }
 
     public function show(Patient $patient): Response
